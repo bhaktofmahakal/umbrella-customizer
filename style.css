@@ -1,0 +1,357 @@
+:root {
+    --theme-color: #FFC107;
+    --theme-color-rgb: 255, 193, 7;
+    --bg-color: #F5F1E8;
+    --text-dark: #2C2C2C;
+    --text-gray: #6B6B6B;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 20px;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Left Section: Umbrella */
+.left-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+    max-width: 500px;
+}
+
+.umbrella-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.umbrella-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: var(--transition);
+    opacity: 1;
+    position: relative;
+    z-index: 2;
+}
+
+
+
+.umbrella-image.fade-out {
+    opacity: 0;
+}
+
+.umbrella-image.fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Loader */
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.loader.hidden {
+    display: none;
+}
+
+.loader-icon {
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Logo Overlay */
+.logo-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 5;
+}
+
+/* Right Section: Controls */
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 450px;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(var(--theme-color-rgb), 0.08) 100%);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--theme-color);
+    transition: var(--transition);
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.2;
+    border-bottom: 4px solid var(--theme-color);
+    padding-bottom: 12px;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+/* Color Swatches */
+.color-swatches {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.swatch {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.swatch:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.swatch.active {
+    border-color: var(--text-dark);
+    box-shadow: 0 0 0 2px var(--bg-color), 0 0 0 4px var(--text-dark);
+    transform: scale(1.15);
+}
+
+/* Customization Info */
+.customization-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.subtitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--theme-color);
+    transition: var(--transition);
+}
+
+.description {
+    font-size: 16px;
+    color: var(--theme-color);
+    line-height: 1.5;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.file-info {
+    font-size: 13px;
+    color: var(--text-gray);
+    line-height: 1.5;
+}
+
+/* Upload Section */
+.upload-section {
+    display: flex;
+    gap: 12px;
+}
+
+.upload-button {
+    flex: 1;
+    padding: 16px 24px;
+    background-color: var(--theme-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.upload-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.upload-button:active {
+    transform: translateY(0);
+}
+
+.upload-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.remove-button {
+    padding: 16px 24px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.remove-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.remove-button:active {
+    transform: translateY(0);
+}
+
+
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        padding: 30px 15px;
+        gap: 40px;
+    }
+
+    .left-section {
+        min-height: 400px;
+        max-width: 100%;
+    }
+
+    .right-section {
+        max-width: 100%;
+        padding: 30px;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    .swatch {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 20px 10px;
+        gap: 20px;
+    }
+
+    .left-section {
+        min-height: 300px;
+    }
+
+    .right-section {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .swatch {
+        width: 24px;
+        height: 24px;
+    }
+
+    .color-swatches {
+        gap: 8px;
+    }
+
+    .logo-overlay {
+        width: 60px;
+        height: 60px;
+    }
+
+    .logo-preview {
+        height: 100px;
+    }
+}

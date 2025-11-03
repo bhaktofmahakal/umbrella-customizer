@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umbrella Customizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!--Umbrella Display -->
+        <div class="left-section">
+            <div class="umbrella-container">
+                <div class="loader hidden" id="loader">
+                    <img src="assets/loader_icon.svg" alt="Loading..." class="loader-icon">
+                </div>
+                <img src="assets/umbrella-yellow.png" alt="Umbrella" id="umbrellaImage" class="umbrella-image">
+                <div class="logo-overlay" id="logoOverlay"></div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="right-section">
+            <h1 class="title">Custom Umbrella</h1>
+
+            <!-- Color Swatches -->
+            <div class="color-swatches">
+                <button class="swatch" data-color="pink" style="background-color: #FF1493;" title="Pink"></button>
+                <button class="swatch" data-color="blue" style="background-color: #0BA5D0;" title="Blue"></button>
+                <button class="swatch" data-color="yellow" style="background-color: #FFC107;" title="Yellow"></button>
+            </div>
+
+            <!-- Customization Text -->
+            <div class="customization-info">
+                <h2 class="subtitle">Customize your umbrella</h2>
+                <p class="description">Upload a logo for an instant preview.</p>
+                <p class="file-info">Supported formats: PNG, JPG, AVIF, WebP. Max file size is 5MB.</p>
+            </div>
+
+            <!-- Upload Button & File Input -->
+            <div class="upload-section">
+                <input type="file" id="logoInput" accept=".png,.jpg,.jpeg,.avif,.webp" style="display: none;">
+                <button class="upload-button" id="uploadButton">
+                    <img src="assets/upload_icon.svg" alt="Upload Icon" class="upload-icon">
+                    <span>Upload Logo</span>
+                </button>
+                <button class="remove-button" id="removeButton" style="display: none;">
+                    <span>Remove</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
